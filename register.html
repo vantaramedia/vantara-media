@@ -207,63 +207,6 @@ Applications are reviewed manually by Vantara Media team.
 
 </div>
 
-<script>
-
-const form = document.querySelector("form");
-
-form.addEventListener("submit", async function(e){
-
-e.preventDefault();
-
-const data = {
-
-name: document.querySelector('input[placeholder="Enter your name"]').value,
-
-instagram: document.querySelector('input[placeholder="@username"]').value,
-
-platform: document.querySelector("select").value,
-
-followers: document.querySelector('input[placeholder="Example: 50K"]').value,
-
-category: document.querySelectorAll("select")[1].value,
-
-contact: document.querySelector('input[placeholder="Email or Telegram username"]').value
-
-};
-
-try{
-
-const response = await fetch("https://script.google.com/macros/s/AKfycbyyIuD77L0MDha73b8RUuWtmgejQ2836fvSEaWSUPx1doPrdjyZ8sbQo3iimwYjIgAd/exec",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify(data)
-
-});
-
-if(response.ok){
-
-window.location.href="success.html";
-
-}else{
-
-alert("Application could not be submitted. Please try again.");
-
-}
-
-}catch(error){
-
-alert("Connection error. Please try again.");
-
-}
-
-});
-
-</script>
 
 <script src="assets/js/register.js"></script>
   
