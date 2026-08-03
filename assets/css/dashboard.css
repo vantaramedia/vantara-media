@@ -100,3 +100,71 @@ min-height:500px;
 border:1px dashed rgba(255,255,255,.08);
 border-radius:20px;
 }
+
+/* =======================
+   Dashboard Statistics
+======================= */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:#171722;
+
+padding:25px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+border-color:#8b5cf6;
+
+box-shadow:0 15px 35px rgba(139,92,246,.15);
+
+}
+
+.card h3{
+
+font-size:15px;
+
+color:#9ca3af;
+
+font-weight:500;
+
+margin-bottom:18px;
+
+}
+
+.card h2{
+
+font-size:38px;
+
+font-weight:700;
+
+margin-bottom:12px;
+
+}
+
+.card p{
+
+color:#7c7f8d;
+
+font-size:14px;
+
+}
