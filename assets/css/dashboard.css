@@ -168,3 +168,34 @@ color:#7c7f8d;
 font-size:14px;
 
 }
+/* Welcome Box */
+
+.welcome-box{
+
+background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+
+padding:28px;
+
+border-radius:18px;
+
+margin-bottom:28px;
+
+}
+
+.welcome-box h2{
+
+font-size:30px;
+
+margin-bottom:10px;
+
+}
+
+.welcome-box p{
+
+font-size:15px;
+
+color:#f1f1f1;
+
+line-height:1.6;
+
+}
