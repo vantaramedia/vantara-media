@@ -336,3 +336,57 @@ background:#6d28d9;
 transform:translateY(-2px);
 
 }
+
+/* ===========================
+Search Bar
+=========================== */
+
+.table-tools{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.table-tools input{
+
+width:250px;
+
+padding:10px 14px;
+
+background:#0f1118;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:10px;
+
+color:white;
+
+font-size:14px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.table-tools input:focus{
+
+border-color:#8b5cf6;
+
+box-shadow:0 0 10px rgba(139,92,246,.25);
+
+}
+
+.section-subtitle{
+
+margin-top:5px;
+
+font-size:14px;
+
+color:#8b95a5;
+
+}
