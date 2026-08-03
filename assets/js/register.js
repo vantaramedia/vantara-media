@@ -1,14 +1,16 @@
 const form = document.querySelector("form");
 
 if (form) {
+
   form.addEventListener("submit", async function (e) {
+
     e.preventDefault();
 
     const submitBtn = document.querySelector("button");
 
-submitBtn.disabled = true;
-submitBtn.innerText = "Submitting...";
-    
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
+
     const data = {
       name: document.querySelector('input[placeholder="Enter your name"]').value.trim(),
       instagram: document.querySelector('input[placeholder="@username"]').value.trim(),
@@ -18,9 +20,15 @@ submitBtn.innerText = "Submitting...";
       contact: document.querySelector('input[placeholder="Email or Telegram username"]').value.trim()
     };
 
+    // Validation
     if (!data.name || !data.instagram || !data.followers || !data.contact) {
+
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit Application";
+
       alert("Please fill all required fields.");
       return;
+
     }
 
     const formData = new FormData();
@@ -33,6 +41,7 @@ submitBtn.innerText = "Submitting...";
     formData.append("contact", data.contact);
 
     try {
+
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbyyIuD77L0MDha73b8RUuWtmgejQ2836fvSEaWSUPx1doPrdjyZ8sbQo3iimwYjIgAd/exec",
         {
@@ -41,40 +50,42 @@ submitBtn.innerText = "Submitting...";
         }
       );
 
-      const result = await response.text();
+      const result = (await response.text()).trim();
 
-// 👇 Yahan se mera naya code paste hoga
-if (result.trim() === "Success") {
+      if (result === "Success") {
 
-  window.location.href = "success.html";
+        window.location.href = "success.html";
+        return;
 
-} else if (result.trim() === "Already Registered") {
+      }
 
-  submitBtn.disabled = false;
-  submitBtn.innerText = "Submit Application";
+      if (result === "Already Registered") {
 
-  alert("This Instagram account is already registered.");
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit Application";
 
-} else {
+        alert("This Instagram account is already registered.");
+        return;
 
-  submitBtn.disabled = false;
-  submitBtn.innerText = "Submit Application";
+      }
 
-  alert("Application submit failed.\n\nServer Response: " + result);
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit Application";
 
-}
+      alert("Server Response:\n\n" + result);
 
-} catch (error) {
+    } catch (error) {
 
-  console.error(error);
+      console.error(error);
 
-  submitBtn.disabled = false;
-  submitBtn.innerText = "Submit Application";
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit Application";
 
-  alert("Connection error.");
+      alert("Connection error. Please try again.");
 
-}
-      });
+    }
+
+  });
 
 }
     
