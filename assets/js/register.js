@@ -74,4 +74,7 @@ if (result.trim() === "Success") {
   alert("Connection error.");
 
 }
+      });
+
+}
     
