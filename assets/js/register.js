@@ -4,6 +4,11 @@ if (form) {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    const submitBtn = document.querySelector("button");
+
+submitBtn.disabled = true;
+submitBtn.innerText = "Submitting...";
+    
     const data = {
       name: document.querySelector('input[placeholder="Enter your name"]').value.trim(),
       instagram: document.querySelector('input[placeholder="@username"]').value.trim(),
