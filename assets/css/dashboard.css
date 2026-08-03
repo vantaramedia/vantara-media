@@ -1,1 +1,102 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
+body{
+background:#0b0b0f;
+color:#fff;
+}
+
+.dashboard{
+display:flex;
+min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:260px;
+background:#12121a;
+border-right:1px solid rgba(255,255,255,.08);
+padding:30px 20px;
+position:fixed;
+left:0;
+top:0;
+bottom:0;
+}
+
+.logo h2{
+font-size:26px;
+font-weight:700;
+}
+
+.logo span{
+color:#8b5cf6;
+}
+
+.sidebar nav{
+margin-top:45px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.sidebar nav a{
+text-decoration:none;
+color:#b5b5c3;
+padding:14px 18px;
+border-radius:12px;
+transition:.25s;
+font-weight:500;
+}
+
+.sidebar nav a:hover{
+background:#8b5cf6;
+color:#fff;
+}
+
+.sidebar nav a.active{
+background:#8b5cf6;
+color:#fff;
+}
+
+/* Main */
+
+.main-content{
+margin-left:260px;
+width:100%;
+padding:35px;
+}
+
+/* Topbar */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+}
+
+.topbar h1{
+font-size:32px;
+font-weight:700;
+}
+
+.admin{
+background:#1b1b26;
+padding:12px 22px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.08);
+font-weight:600;
+}
+
+/* Content */
+
+.content{
+min-height:500px;
+border:1px dashed rgba(255,255,255,.08);
+border-radius:20px;
+}
