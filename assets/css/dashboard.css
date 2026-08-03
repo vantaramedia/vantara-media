@@ -199,3 +199,140 @@ color:#f1f1f1;
 line-height:1.6;
 
 }
+/* ===========================
+   Recent Applications
+=========================== */
+
+.applications{
+
+margin-top:35px;
+
+background:#171722;
+
+padding:25px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.section-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.section-header h2{
+
+font-size:22px;
+
+font-weight:600;
+
+}
+
+.section-header a{
+
+text-decoration:none;
+
+color:#8b5cf6;
+
+font-weight:600;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+table th{
+
+text-align:left;
+
+padding:16px;
+
+color:#8f95a3;
+
+font-weight:600;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+table td{
+
+padding:18px 16px;
+
+border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+.pending{
+
+background:#3b2f0c;
+
+color:#ffd54a;
+
+padding:6px 12px;
+
+border-radius:30px;
+
+font-size:13px;
+
+font-weight:600;
+
+}
+
+.approved{
+
+background:#12391f;
+
+color:#53e47c;
+
+padding:6px 12px;
+
+border-radius:30px;
+
+font-size:13px;
+
+font-weight:600;
+
+}
+
+.view-btn{
+
+background:#8b5cf6;
+
+border:none;
+
+color:#fff;
+
+padding:8px 18px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.view-btn:hover{
+
+background:#6d28d9;
+
+transform:translateY(-2px);
+
+}
