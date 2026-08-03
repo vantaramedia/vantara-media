@@ -43,16 +43,35 @@ submitBtn.innerText = "Submitting...";
 
       const result = await response.text();
 
-      if (result.trim() === "Success") {
-        window.location.href = "success.html";
-      } else {
-        alert("Application submit failed.\n\nServer Response: " + result);
-      }
+// 👇 Yahan se mera naya code paste hoga
+if (result.trim() === "Success") {
 
-    } catch (error) {
-      console.error(error);
-      alert("Connection error.");
-    }
-  });
+  window.location.href = "success.html";
+
+} else if (result.trim() === "Already Registered") {
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Submit Application";
+
+  alert("This Instagram account is already registered.");
+
+} else {
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Submit Application";
+
+  alert("Application submit failed.\n\nServer Response: " + result);
+
+}
+
+} catch (error) {
+
+  console.error(error);
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Submit Application";
+
+  alert("Connection error.");
+
 }
     
