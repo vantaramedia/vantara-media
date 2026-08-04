@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Creators | Vantara Media</title>
+
+<link rel="stylesheet" href="assets/css/creators.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>Vantara <span>Media</span></h2>
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">🏠 Dashboard</a>
+
+            <a href="creators.html" class="active">👥 Creators</a>
+
+            <a href="campaigns.html">📢 Campaigns</a>
+
+            <a href="payments.html">💰 Payments</a>
+
+            <a href="analytics.html">📊 Analytics</a>
+
+            <a href="announcements.html">📣 Announcements</a>
+
+            <a href="settings.html">⚙ Settings</a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Creators</h1>
+
+                <p class="subtitle">
+                    Manage all registered creators
+                </p>
+
+            </div>
+
+            <div class="admin">
+                Admin
+            </div>
+
+        </header>
+
+        <!-- Stats -->
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total Creators</h3>
+                <h2 id="totalCreators">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <h2 id="pendingCreators">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Approved</h3>
+                <h2 id="approvedCreators">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Rejected</h3>
+                <h2 id="rejectedCreators">0</h2>
+            </div>
+
+        </div>
+
+        <!-- Search -->
+
+        <div class="toolbar">
+
+            <input
+                type="text"
+                id="searchCreator"
+                placeholder="Search creator...">
+
+            <select id="statusFilter">
+
+                <option value="all">All</option>
+
+                <option value="Pending">Pending</option>
+
+                <option value="Approved">Approved</option>
+
+                <option value="Rejected">Rejected</option>
+
+            </select>
+
+        </div>
+
+        <!-- Table -->
+
+        <div class="table-box">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Instagram</th>
+
+                        <th>Platform</th>
+
+                        <th>Followers</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="creatorTableBody">
+
+                    <!-- Google Sheet Data -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- Popup -->
+
+<div class="modal" id="creatorModal">
+
+    <div class="modal-content">
+
+        <span id="closeModal">&times;</span>
+
+        <h2>Creator Details</h2>
+
+        <p><b>Application ID:</b> <span id="popupId"></span></p>
+
+        <p><b>Name:</b> <span id="popupName"></span></p>
+
+        <p><b>Instagram:</b> <span id="popupInstagram"></span></p>
+
+        <p><b>Platform:</b> <span id="popupPlatform"></span></p>
+
+        <p><b>Followers:</b> <span id="popupFollowers"></span></p>
+
+        <p><b>Category:</b> <span id="popupCategory"></span></p>
+
+        <p><b>Contact:</b> <span id="popupContact"></span></p>
+
+        <p><b>Status:</b> <span id="popupStatus"></span></p>
+
+    </div>
+
+</div>
+
+<script src="assets/js/creators.js"></script>
+
+</body>
+</html>
