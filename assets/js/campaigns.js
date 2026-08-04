@@ -1,71 +1,131 @@
-// ========================================
-// Vantara Media - Campaigns Loader
-// ========================================
+// =========================================
+// Vantara Media Campaign Manager
+// =========================================
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyyIuD77L0MDha73b8RUuWtmgejQ2836fvSEaWSUPx1doPrdjyZ8sbQo3iimwYjIgAd/exec?action=campaigns";
 
-const campaignContainer =
-document.getElementById("campaignContainer");
+const campaignTable = document.getElementById("campaignTable");
+
+const totalCampaigns = document.getElementById("totalCampaigns");
+const activeCampaigns = document.getElementById("activeCampaigns");
+const closedCampaigns = document.getElementById("closedCampaigns");
 
 async function loadCampaigns() {
 
-    campaignContainer.innerHTML =
-    "<p style='text-align:center'>Loading campaigns...</p>";
+try {
 
-    try {
+const response = await fetch(API_URL);
 
-        const response = await fetch(API_URL);
+const campaigns = await response.json();
 
-        const campaigns = await response.json();
+campaignTable.innerHTML = "";
 
-        campaignContainer.innerHTML = "";
+let active = 0;
+let closed = 0;
 
-        if (campaigns.length === 0) {
+campaigns.forEach(campaign => {
 
-            campaignContainer.innerHTML =
-            "<p style='text-align:center'>No Active Campaigns</p>";
+if(campaign.status==="Active") active++;
+else closed++;
 
-            return;
+campaignTable.innerHTML += `
+<tr>
 
-        }
+<td>${campaign.id}</td>
 
-        campaigns.forEach(campaign => {
+<td>${campaign.campaign}</td>
 
-            campaignContainer.innerHTML += `
-                        <div class="card">
+<td>${campaign.platform}</td>
 
-                <div class="platform">${campaign.platform}</div>
+<td>
+<span class="${
+campaign.status==="Active"
+? "approved"
+: "pending"
+}">
+${campaign.status}
+</span>
+</td>
 
-                <h2>${campaign.campaign}</h2>
+<td>${new Date(campaign.deadline).toLocaleDateString()}</td>
 
-                <p>${campaign.description}</p>
+<td>
+<button
+class="view-btn"
+data-id="${campaign.id}">
+Manage
+</button>
+</td>
 
-                <p><strong>Category:</strong> ${campaign.category}</p>
+</tr>
+`;
 
-                <p><strong>Minimum Followers:</strong> ${campaign.followers}</p>
+});
+    totalCampaigns.innerText = campaigns.length;
+activeCampaigns.innerText = active;
+closedCampaigns.innerText = closed;
 
-                <p><strong>Rate:</strong> ₹${campaign.rate} / Million Views</p>
+initButtons();
 
-                <p><strong>Deadline:</strong> ${new Date(campaign.deadline).toLocaleDateString()}</p>
+} catch(error){
 
-                <span class="status">${campaign.status}</span>
+console.error(error);
 
-                <button>Apply Now</button>
+campaignTable.innerHTML =
+"<tr><td colspan='6'>Failed to load campaigns.</td></tr>";
 
-            </div>
-            `;
+}
 
-        });
+}
 
-    } catch (error) {
+// ===============================
+// Search
+// ===============================
 
-        campaignContainer.innerHTML =
-        "<p style='text-align:center;color:red;'>Failed to load campaigns.</p>";
+const searchCampaign =
+document.getElementById("searchCampaign");
 
-        console.error(error);
+if(searchCampaign){
 
-    }
+searchCampaign.addEventListener("keyup",function(){
+
+const filter=this.value.toLowerCase();
+
+const rows=document.querySelectorAll("#campaignTable tr");
+
+rows.forEach(row=>{
+
+row.style.display=
+row.innerText.toLowerCase().includes(filter)
+? ""
+: "none";
+
+});
+
+});
+
+}
+
+// ===============================
+// Manage Button
+// ===============================
+
+function initButtons(){
+
+document.querySelectorAll(".view-btn").forEach(btn=>{
+
+btn.onclick=function(){
+
+alert(
+"Campaign ID : " +
+this.dataset.id +
+"\n\nCampaign Manager feature coming next."
+);
+
+};
+
+});
 
 }
 
