@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Creator Dashboard | Vantara Media</title>
+
+<link rel="stylesheet" href="assets/css/creator-dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>Vantara <span>Media</span></h2>
+
+</div>
+
+<nav>
+
+<a href="#" class="active">🏠 Dashboard</a>
+
+<a href="#">📢 Available Campaigns</a>
+
+<a href="#">📝 My Applications</a>
+
+<a href="#">📱 My Pages</a>
+
+<a href="#">💰 Payments</a>
+
+<a href="#">👤 Profile</a>
+
+<a href="login.html">🚪 Logout</a>
+
+</nav>
+
+</aside>
+
+<!-- Main Content -->
+
+<main class="main-content">
+
+<header class="topbar">
+
+<div>
+
+<h1>Creator Dashboard</h1>
+
+<p id="creatorWelcome">
+Welcome back 👋
+</p>
+
+</div>
+
+<div class="creator-status">
+
+<span class="approved">
+Approved
+</span>
+
+</div>
+
+</header>
+
+<section class="stats">
+
+<div class="card">
+
+<h3>My Pages</h3>
+
+<h2 id="totalPages">0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Applications</h3>
+
+<h2 id="totalApplications">0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Active Campaigns</h3>
+
+<h2 id="activeCampaigns">0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Total Earnings</h3>
+
+<h2>₹0</h2>
+
+</div>
+
+</section>
+
+<section class="recent">
+
+<h2>Recent Activity</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+
+<th>Campaign</th>
+
+<th>Platform</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="activityTable">
+
+<tr>
+
+<td colspan="4">
+
+No activity yet.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="assets/js/creator-dashboard.js"></script>
+
+</body>
+
+</html>
