@@ -1,258 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Active Campaigns | Vantara Media</title>
+<title>Campaign Management | Vantara Media</title>
 
-<style>
+<link rel="stylesheet" href="assets/css/campaigns.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
-body{
-background:#0b0b0f;
-color:white;
-padding:30px 15px;
-}
-
-
-.container{
-max-width:1100px;
-margin:auto;
-}
-
-
-.logo{
-text-align:center;
-font-size:32px;
-font-weight:bold;
-margin-bottom:10px;
-}
-
-.logo span{
-color:#8b5cf6;
-}
-
-
-.subtitle{
-text-align:center;
-color:#aaa;
-margin-bottom:40px;
-}
-
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-
-.card{
-
-background:#15151d;
-padding:25px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,0.1);
-
-}
-
-
-.platform{
-
-color:#8b5cf6;
-font-weight:bold;
-margin-bottom:15px;
-
-}
-
-
-.card h2{
-margin-bottom:15px;
-}
-
-
-.card p{
-
-color:#aaa;
-line-height:1.6;
-margin-bottom:15px;
-
-}
-
-
-.status{
-
-display:inline-block;
-background:#1c8c4a;
-padding:6px 15px;
-border-radius:20px;
-font-size:13px;
-
-}
-
-
-button{
-
-margin-top:15px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:25px;
-background:#8b5cf6;
-color:white;
-font-weight:bold;
-cursor:pointer;
-
-}
-
-
-footer{
-
-text-align:center;
-margin-top:40px;
-color:#777;
-
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
-
 <body>
 
+<div class="dashboard">
 
-<div class="container">
-
+<aside class="sidebar">
 
 <div class="logo">
-Vantara <span>Media</span>
+<h2>Vantara <span>Media</span></h2>
 </div>
 
+<nav>
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="creators.html">👥 Creators</a>
+
+<a href="campaigns.html" class="active">📢 Campaigns</a>
+
+<a href="payments.html">💰 Payments</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="announcements.html">📣 Announcements</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<main class="main-content">
+
+<header class="topbar">
+
+<div>
+
+<h1>Campaign Management</h1>
 
 <p class="subtitle">
-Explore active creator campaigns and partnership opportunities
+
+Manage all active creator campaigns
+
 </p>
 
+</div>
 
+<div class="admin">
 
-<div class="grid">
+Admin
 
+</div>
+
+</header>
+
+<div class="stats">
 
 <div class="card">
 
-<div class="platform">
-Instagram Campaign
+<h3>Total Campaigns</h3>
+
+<h2 id="totalCampaigns">0</h2>
+
 </div>
 
-<h2>Entertainment Promotion</h2>
+<div class="card">
 
-<p>
-Promote entertainment content through reels and creative posts.
-</p>
+<h3>Active</h3>
 
-<span class="status">
-Active
-</span>
+<h2 id="activeCampaigns">0</h2>
 
-<button>
-Apply Now
+</div>
+
+<div class="card">
+
+<h3>Closed</h3>
+
+<h2 id="closedCampaigns">0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Platforms</h3>
+
+<h2>4</h2>
+
+</div>
+
+</div>
+
+<div class="toolbar">
+
+<input
+type="text"
+id="searchCampaign"
+placeholder="Search Campaign...">
+
+<button class="add-btn">
+
++ Add Campaign
+
 </button>
 
 </div>
 
+<div class="table-box">
 
+<table>
 
-<div class="card">
+<thead>
 
-<div class="platform">
-YouTube Campaign
-</div>
+<tr>
 
-<h2>Video Promotion</h2>
+<th>ID</th>
 
-<p>
-Creators can participate through videos, shorts and community posts.
-</p>
+<th>Campaign</th>
 
-<span class="status">
-Active
-</span>
+<th>Platform</th>
 
-<button>
-Apply Now
-</button>
+<th>Status</th>
 
-</div>
+<th>Deadline</th>
 
+<th>Action</th>
 
+</tr>
 
-<div class="card">
+</thead>
 
-<div class="platform">
-Telegram Campaign
-</div>
+<tbody id="campaignTable">
 
-<h2>Community Growth</h2>
+  <tr>
 
-<p>
-Help grow communities through genuine audience engagement.
-</p>
+<td>CP001</td>
 
-<span class="status">
-Active
-</span>
+<td>Instagram Promotion</td>
 
-<button>
-Apply Now
-</button>
+<td>Instagram</td>
 
-</div>
+<td><span class="approved">Active</span></td>
 
+<td>31 Aug 2026</td>
 
+<td><button class="view-btn">Manage</button></td>
 
-<div class="card">
+</tr>
 
-<div class="platform">
-Facebook Campaign
-</div>
+<tr>
 
-<h2>Social Reach Campaign</h2>
+<td>CP002</td>
 
-<p>
-Promote campaigns using Facebook pages, groups and content sharing.
-</p>
+<td>YouTube Shorts Boost</td>
 
-<span class="status">
-Active
-</span>
+<td>YouTube</td>
 
-<button>
-Apply Now
-</button>
+<td><span class="pending">Closed</span></td>
 
-</div>
+<td>15 Sep 2026</td>
 
+<td><button class="view-btn">Manage</button></td>
 
+</tr>
 
-</div>
+<tr>
 
+<td>CP003</td>
 
-<footer>
-© 2026 Vantara Media. All Rights Reserved.
-</footer>
+<td>Telegram Community Growth</td>
 
+<td>Telegram</td>
+
+<td><span class="approved">Active</span></td>
+
+<td>30 Sep 2026</td>
+
+<td><button class="view-btn">Manage</button></td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 </div>
 
+</main>
+
+</div>
+
+<script src="assets/js/campaigns.js"></script>
 
 </body>
+
 </html>
