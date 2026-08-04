@@ -15,11 +15,47 @@ loginForm.addEventListener("submit", async function(e){
         return;
     }
 
-    // Temporary login
-    localStorage.setItem("creatorEmail", email);
+    try{
 
-    alert("Login successful!");
+        const formData = new URLSearchParams();
 
-    window.location.href="creator-dashboard.html";
+        formData.append("action","login");
+        formData.append("email",email);
+        formData.append("password",password);
+
+        const response = await fetch(API_URL,{
+
+            method:"POST",
+            body:formData
+
+        });
+
+        const result = await response.json();
+
+        if(result.success){
+
+            localStorage.setItem("creatorId",result.creatorId);
+            localStorage.setItem("creatorName",result.name);
+            localStorage.setItem("creatorEmail",result.email);
+            localStorage.setItem("creatorTelegram",result.telegram);
+            localStorage.setItem("creatorStatus",result.status);
+
+            alert("Login Successful!");
+
+            window.location.href="creator-dashboard.html";
+
+        }else{
+
+            alert("Invalid Email or Password");
+
+        }
+
+    }catch(err){
+
+        console.log(err);
+
+        alert("Connection Error");
+
+    }
 
 });
