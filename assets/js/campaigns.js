@@ -1,61 +1,72 @@
-// ==============================
-// Campaign Search
-// ==============================
+// ========================================
+// Vantara Media - Campaigns Loader
+// ========================================
 
-const searchCampaign = document.getElementById("searchCampaign");
+const API_URL =
+"https://script.google.com/macros/s/AKfycbyyIuD77L0MDha73b8RUuWtmgejQ2836fvSEaWSUPx1doPrdjyZ8sbQo3iimwYjIgAd/exec?action=campaigns";
 
-if (searchCampaign) {
+const campaignContainer =
+document.getElementById("campaignContainer");
 
-searchCampaign.addEventListener("keyup", function () {
+async function loadCampaigns() {
 
-const filter = this.value.toLowerCase();
+    campaignContainer.innerHTML =
+    "<p style='text-align:center'>Loading campaigns...</p>";
 
-const rows = document.querySelectorAll("#campaignTable tr");
+    try {
 
-rows.forEach(row => {
+        const response = await fetch(API_URL);
 
-const text = row.innerText.toLowerCase();
+        const campaigns = await response.json();
 
-row.style.display = text.includes(filter) ? "" : "none";
+        campaignContainer.innerHTML = "";
 
-});
+        if (campaigns.length === 0) {
 
-});
+            campaignContainer.innerHTML =
+            "<p style='text-align:center'>No Active Campaigns</p>";
+
+            return;
+
+        }
+
+        campaigns.forEach(campaign => {
+
+            campaignContainer.innerHTML += `
+                        <div class="card">
+
+                <div class="platform">${campaign.platform}</div>
+
+                <h2>${campaign.campaign}</h2>
+
+                <p>${campaign.description}</p>
+
+                <p><strong>Category:</strong> ${campaign.category}</p>
+
+                <p><strong>Minimum Followers:</strong> ${campaign.followers}</p>
+
+                <p><strong>Rate:</strong> ₹${campaign.rate} / Million Views</p>
+
+                <p><strong>Deadline:</strong> ${new Date(campaign.deadline).toLocaleDateString()}</p>
+
+                <span class="status">${campaign.status}</span>
+
+                <button>Apply Now</button>
+
+            </div>
+            `;
+
+        });
+
+    } catch (error) {
+
+        campaignContainer.innerHTML =
+        "<p style='text-align:center;color:red;'>Failed to load campaigns.</p>";
+
+        console.error(error);
+
+    }
 
 }
 
-// ==============================
-// Manage Button
-// ==============================
-
-const manageButtons = document.querySelectorAll(".view-btn");
-
-manageButtons.forEach(button => {
-
-button.addEventListener("click", function () {
-
-const row = button.closest("tr");
-
-const campaign = row.children[1].innerText;
-
-alert("Campaign Manager\n\n" + campaign);
-
-});
-
-});
-
-// ==============================
-// Add Campaign
-// ==============================
-
-const addBtn = document.querySelector(".add-btn");
-
-if(addBtn){
-
-addBtn.addEventListener("click",function(){
-
-alert("Add Campaign feature will be connected with Google Sheets in next step.");
-
-});
-
-}
+loadCampaigns();
