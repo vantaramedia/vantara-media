@@ -114,6 +114,80 @@ No Pages Added Yet.
 
 </div>
 
+<!-- Add Page Popup -->
+
+<div id="pageModal" class="modal">
+
+<div class="modal-box">
+
+<h2>Add New Page</h2>
+
+<form id="pageForm">
+
+<label>Platform</label>
+
+<select id="platform" required>
+
+<option value="">Select Platform</option>
+
+<option>Instagram</option>
+
+<option>YouTube</option>
+
+<option>Facebook</option>
+
+<option>Telegram</option>
+
+</select>
+
+<label>Page Name</label>
+
+<input
+type="text"
+id="pageName"
+placeholder="Enter Page Name"
+required>
+
+<label>Username / Link</label>
+
+<input
+type="text"
+id="username"
+placeholder="@username or page link"
+required>
+
+<label>Followers</label>
+
+<input
+type="number"
+id="followers"
+placeholder="Followers"
+required>
+
+<div class="popup-buttons">
+
+<button type="submit">
+
+Save Page
+
+</button>
+
+<button
+type="button"
+id="closePopup">
+
+Cancel
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+  
 <script src="assets/js/my-pages.js"></script>
 
 </body>
