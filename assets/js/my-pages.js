@@ -116,6 +116,8 @@ async function loadPages() {
 
         const data = await response.json();
 
+        console.log(data);
+
         pagesTable.innerHTML = "";
 
         if(data.length===0){
