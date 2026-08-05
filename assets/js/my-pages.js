@@ -98,3 +98,68 @@ alert("Connection Error");
 }
 
 });
+
+// =========================
+// Load Creator Pages
+// =========================
+
+const pagesTable = document.getElementById("pagesTable");
+
+async function loadPages() {
+
+    const creatorId =
+    localStorage.getItem("creatorId") || "TEST001";
+
+    try{
+
+        const response = await fetch(API_URL + "?action=getPages&creatorId=" + creatorId);
+
+        const data = await response.json();
+
+        pagesTable.innerHTML = "";
+
+        if(data.length===0){
+
+            pagesTable.innerHTML=`
+            <tr>
+            <td colspan="6">No Pages Added Yet.</td>
+            </tr>
+            `;
+
+            return;
+
+        }
+
+        data.forEach(page=>{
+
+            pagesTable.innerHTML += `
+            <tr>
+
+            <td>${page.platform}</td>
+
+            <td>${page.pageName}</td>
+
+            <td>${page.username}</td>
+
+            <td>${page.followers}</td>
+
+            <td>${page.status}</td>
+
+            <td>
+            <button>Edit</button>
+            </td>
+
+            </tr>
+            `;
+
+        });
+
+    }catch(err){
+
+        console.log(err);
+
+    }
+
+}
+
+loadPages();
