@@ -1,16 +1,120 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
 
-<title>Coming Soon</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Pages | Vantara Media</title>
+
+<link rel="stylesheet" href="assets/css/my-pages.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<h1>Coming Soon</h1>
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+<h2>Vantara <span>Media</span></h2>
+</div>
+
+<nav>
+
+<a href="creator-dashboard.html">🏠 Dashboard</a>
+
+<a href="available-campaigns.html">📢 Campaigns</a>
+
+<a href="#">📝 My Applications</a>
+
+<a href="my-pages.html" class="active">📱 My Pages</a>
+
+<a href="payments.html">💰 Payments</a>
+
+<a href="profile.html">👤 Profile</a>
+
+<a href="login.html">🚪 Logout</a>
+
+</nav>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main-content">
+
+<header class="topbar">
+
+<div>
+
+<h1>My Pages</h1>
+
+<p>Add all your social media pages here.</p>
+
+</div>
+
+<button id="addPageBtn">
+
++ Add New Page
+
+</button>
+
+</header>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Platform</th>
+
+<th>Page Name</th>
+
+<th>Username</th>
+
+<th>Followers</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="pagesTable">
+
+<tr>
+
+<td colspan="6">
+
+No Pages Added Yet.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="assets/js/my-pages.js"></script>
 
 </body>
 
