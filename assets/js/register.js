@@ -31,14 +31,14 @@ if (form) {
 
     }
 
-    const formData = new FormData();
+    const formData = new URLSearchParams();
 
-    formData.append("name", data.name);
-    formData.append("instagram", data.instagram);
-    formData.append("platform", data.platform);
-    formData.append("followers", data.followers);
-    formData.append("category", data.category);
-    formData.append("contact", data.contact);
+formData.append("name", data.name);
+formData.append("instagram", data.instagram);
+formData.append("platform", data.platform);
+formData.append("followers", data.followers);
+formData.append("category", data.category);
+formData.append("contact", data.contact);
 
     try {
 
