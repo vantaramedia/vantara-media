@@ -43,12 +43,15 @@ formData.append("contact", data.contact);
     try {
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyyIuD77L0MDha73b8RUuWtmgejQ2836fvSEaWSUPx1doPrdjyZ8sbQo3iimwYjIgAd/exec",
-        {
-          method: "POST",
-          body: formData
-        }
-      );
+  "https://script.google.com/macros/s/AKfycbyyIuD77L0MDha73b8RUuWtmgejQ2836fvSEaWSUPx1doPrdjyZ8sbQo3iimwYjIgAd/exec",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: formData
+  }
+);
 
       const result = (await response.text()).trim();
 
