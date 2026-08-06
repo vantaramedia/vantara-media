@@ -174,3 +174,62 @@ Delete
 }
 
 loadPages();
+
+// =========================
+// Edit & Delete Buttons
+// =========================
+
+document.addEventListener("click", async function(e){
+
+// Edit
+if(e.target.classList.contains("edit-btn")){
+
+alert("Edit feature next step me add karenge.");
+
+}
+
+// Delete
+if(e.target.classList.contains("delete-btn")){
+
+const pageId = e.target.dataset.id;
+
+if(!confirm("Delete this page?")) return;
+
+const formData = new URLSearchParams();
+
+formData.append("action","deletePage");
+formData.append("pageId",pageId);
+
+try{
+
+const response = await fetch(API_URL,{
+
+method:"POST",
+
+body:formData
+
+});
+
+const result = await response.text();
+
+if(result.trim()=="Success"){
+
+alert("Page Deleted");
+
+loadPages();
+
+}else{
+
+alert(result);
+
+}
+
+}catch(err){
+
+console.log(err);
+
+}
+
+}
+
+});
