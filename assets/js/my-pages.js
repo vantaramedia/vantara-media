@@ -205,9 +205,13 @@ try{
 
 const response = await fetch(API_URL,{
 
-method:"POST",
+    method:"POST",
 
-body:formData
+    headers:{
+        "Content-Type":"application/x-www-form-urlencoded"
+    },
+
+    body:formData
 
 });
 
@@ -217,7 +221,7 @@ if(result.trim()=="Success"){
 
 alert("Page Deleted");
 
-loadPages();
+location.reload();
 
 }else{
 
