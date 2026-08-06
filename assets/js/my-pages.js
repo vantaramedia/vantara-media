@@ -131,29 +131,39 @@ async function loadPages() {
 
         }
 
-        data.forEach(page=>{
+    data.forEach(page => {
 
-            pagesTable.innerHTML += `
-            <tr>
+pagesTable.innerHTML += `
+<tr>
 
-            <td>${page.platform}</td>
+<td>${page.platform}</td>
 
-            <td>${page.pageName}</td>
+<td>${page.pageName}</td>
 
-            <td>${page.username}</td>
+<td>${page.username}</td>
 
-            <td>${page.followers}</td>
+<td>${page.followers}</td>
 
-            <td>${page.status}</td>
+<td>${page.status}</td>
 
-            <td>
-            <button>Edit</button>
-            </td>
+<td>
 
-            </tr>
-            `;
+<button class="edit-btn"
+data-id="${page.pageId}">
+Edit
+</button>
 
-        });
+<button class="delete-btn"
+data-id="${page.pageId}">
+Delete
+</button>
+
+</td>
+
+</tr>
+`;
+
+});
 
     }catch(err){
 
