@@ -182,6 +182,8 @@ loadPages();
 
 document.addEventListener("click", async function(e){
 
+    console.log("Clicked:", e.target);
+
 // Edit
 if(e.target.classList.contains("edit-btn")){
 
