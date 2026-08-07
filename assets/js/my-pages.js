@@ -187,7 +187,9 @@ document.addEventListener("click", async function(e){
 // Edit
 if(e.target.classList.contains("edit-btn")){
 
-alert("Edit feature next step me add karenge.");
+    const pageId = e.target.dataset.id;
+
+    alert("Edit Page ID: " + pageId);
 
 }
 
