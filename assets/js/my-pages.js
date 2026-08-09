@@ -189,7 +189,21 @@ if(e.target.classList.contains("edit-btn")){
 
     const pageId = e.target.dataset.id;
 
-    alert("Edit Page ID: " + pageId);
+    const row = e.target.closest("tr");
+
+    const pageName = row.cells[1].textContent.trim();
+    const pageUrl = row.cells[2].textContent.trim();
+    const followers = row.cells[3].textContent.trim();
+
+    document.getElementById("editPageId").value = pageId;
+
+    document.getElementById("editPageName").value = pageName;
+
+    document.getElementById("editPageUrl").value = pageUrl;
+
+    document.getElementById("editFollowers").value = followers;
+
+    document.getElementById("editPageModal").style.display = "flex";
 
 }
 
