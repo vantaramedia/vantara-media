@@ -338,7 +338,7 @@ editPageForm.addEventListener("submit", async function(e){
 
             alert("Page Updated Successfully!");
 
-            editPageModal.style.display = "none";
+            editModal.style.display = "none";
 
             editPageForm.reset();
 
