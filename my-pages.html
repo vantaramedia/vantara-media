@@ -171,6 +171,62 @@ Cancel
 </div>
 
 </div>
+
+<!-- Edit Page Popup -->
+
+<div id="editPageModal" class="modal">
+
+    <div class="modal-box">
+
+        <h2>Edit Page</h2>
+
+        <form id="editPageForm">
+
+            <input type="hidden" id="editPageId">
+
+            <label>Page Name</label>
+
+            <input
+                type="text"
+                id="editPageName"
+                placeholder="Enter Page Name"
+                required>
+
+            <label>Page URL</label>
+
+            <input
+                type="url"
+                id="editPageUrl"
+                placeholder="https://instagram.com/yourpage"
+                required>
+
+            <label>Followers</label>
+
+            <input
+                type="number"
+                id="editFollowers"
+                placeholder="Followers"
+                required>
+
+            <div class="popup-buttons">
+
+                <button type="submit">
+                    Save Changes
+                </button>
+
+                <button
+                    type="button"
+                    id="closeEditPopup">
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
   
 <script src="assets/js/my-pages.js"></script>
 
