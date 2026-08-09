@@ -285,3 +285,77 @@ window.addEventListener("click", function(e){
     }
 
 });
+
+// =========================
+// SAVE EDITED PAGE
+// =========================
+
+const editPageForm =
+document.getElementById("editPageForm");
+
+editPageForm.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const creatorId =
+    localStorage.getItem("creatorId") || "TEST001";
+
+    const pageId =
+    document.getElementById("editPageId").value;
+
+    const pageName =
+    document.getElementById("editPageName").value.trim();
+
+    const pageUrl =
+    document.getElementById("editPageUrl").value.trim();
+
+    const followers =
+    document.getElementById("editFollowers").value;
+
+    const formData = new URLSearchParams();
+
+    formData.append("action", "editPage");
+    formData.append("pageId", pageId);
+    formData.append("creatorId", creatorId);
+    formData.append("pageName", pageName);
+    formData.append("username", pageUrl);
+    formData.append("followers", followers);
+
+    try{
+
+        const response = await fetch(API_URL, {
+
+            method: "POST",
+
+            body: formData
+
+        });
+
+        const result =
+        (await response.text()).trim();
+
+        if(result === "Success"){
+
+            alert("Page Updated Successfully!");
+
+            editPageModal.style.display = "none";
+
+            editPageForm.reset();
+
+            loadPages();
+
+        }else{
+
+            alert(result);
+
+        }
+
+    }catch(err){
+
+        console.log(err);
+
+        alert("Connection Error");
+
+    }
+
+});
