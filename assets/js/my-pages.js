@@ -108,7 +108,7 @@ const pagesTable = document.getElementById("pagesTable");
 async function loadPages() {
 
     const creatorId =
-localStorage.getItem("creatorId") || "TEST001";
+localStorage.getItem("creatorId");
 
     try{
 
