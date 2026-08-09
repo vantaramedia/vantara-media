@@ -256,3 +256,32 @@ console.log(err);
 }
 
 });
+
+// =========================
+// Edit Popup Close
+// =========================
+
+const editModal = document.getElementById("editPageModal");
+
+const closeEditBtn =
+document.getElementById("closeEditPopup");
+
+closeEditBtn.addEventListener("click", function(){
+
+    editModal.style.display = "none";
+
+    document.getElementById("editPageForm").reset();
+
+});
+
+window.addEventListener("click", function(e){
+
+    if(e.target === editModal){
+
+        editModal.style.display = "none";
+
+        document.getElementById("editPageForm").reset();
+
+    }
+
+});
