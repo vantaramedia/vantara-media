@@ -1,6 +1,21 @@
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyyIuD77L0MDha73b8RUuWtmgejQ2836fvSEaWSUPx1doPrdjyZ8sbQo3iimwYjIgAd/exec";
 
+// =========================
+// LOGIN CHECK
+// =========================
+
+const loggedInCreatorId =
+localStorage.getItem("creatorId");
+
+if (!loggedInCreatorId) {
+
+    alert("Please login first.");
+
+    window.location.href = "login.html";
+
+}
+
 const addBtn=document.getElementById("addPageBtn");
 const modal=document.getElementById("pageModal");
 const closeBtn=document.getElementById("closePopup");
