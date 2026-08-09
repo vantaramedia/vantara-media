@@ -36,8 +36,8 @@ pageForm.addEventListener("submit",async function(e){
 
 e.preventDefault();
 
-const creatorId=
-localStorage.getItem("creatorId") || "TEST001";
+const creatorId =
+localStorage.getItem("creatorId");
 
 const formData=new URLSearchParams();
 
