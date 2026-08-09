@@ -1,1 +1,230 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:250px;
+    background:#111827;
+    color:white;
+    padding:25px 18px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+}
+
+.logo{
+    padding:0 10px 35px;
+}
+
+.logo h2{
+    font-size:22px;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.sidebar nav a{
+    color:#d1d5db;
+    text-decoration:none;
+    padding:13px 14px;
+    border-radius:8px;
+    font-size:14px;
+    transition:.2s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active{
+    background:#1d4ed8;
+    color:white;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content{
+    margin-left:250px;
+    width:calc(100% - 250px);
+    padding:30px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.topbar h1{
+    font-size:28px;
+    margin-bottom:7px;
+}
+
+.topbar p{
+    color:#6b7280;
+    font-size:14px;
+}
+
+/* =========================
+   CAMPAIGNS
+========================= */
+
+.campaigns-section{
+    width:100%;
+}
+
+#campaignsContainer{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.loading{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    color:#6b7280;
+    text-align:center;
+    grid-column:1/-1;
+}
+
+/* =========================
+   CAMPAIGN CARD
+========================= */
+
+.campaign-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:22px;
+    box-shadow:0 4px 12px rgba(0,0,0,.04);
+}
+
+.campaign-card h2{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.campaign-platform{
+    display:inline-block;
+    background:#eff6ff;
+    color:#2563eb;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.campaign-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin:18px 0;
+}
+
+.campaign-info div{
+    background:#f9fafb;
+    padding:10px;
+    border-radius:8px;
+}
+
+.campaign-info small{
+    display:block;
+    color:#6b7280;
+    font-size:11px;
+    margin-bottom:4px;
+}
+
+.campaign-info strong{
+    font-size:14px;
+}
+
+.campaign-description{
+    color:#6b7280;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.apply-btn{
+    width:100%;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.apply-btn:hover{
+    background:#1d4ed8;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:70px;
+        padding:20px 8px;
+    }
+
+    .logo h2{
+        font-size:0;
+    }
+
+    .logo h2:after{
+        content:"VM";
+        font-size:18px;
+    }
+
+    .sidebar nav a{
+        font-size:0;
+        text-align:center;
+    }
+
+    .main-content{
+        margin-left:70px;
+        width:calc(100% - 70px);
+        padding:20px;
+    }
+
+    .topbar h1{
+        font-size:22px;
+    }
+
+    #campaignsContainer{
+        grid-template-columns:1fr;
+    }
+
+}
 
