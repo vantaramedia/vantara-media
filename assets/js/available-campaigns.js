@@ -38,13 +38,16 @@ async function loadCampaigns() {
         );
 
         const campaigns =
-        await response.json();
+            await response.json();
 
         console.log("Campaigns:", campaigns);
 
         campaignsContainer.innerHTML = "";
 
-        if (!campaigns || campaigns.length === 0) {
+        if (
+            !campaigns ||
+            campaigns.length === 0
+        ) {
 
             campaignsContainer.innerHTML = `
                 <div class="loading">
@@ -126,7 +129,10 @@ async function loadCampaigns() {
 
     catch(error) {
 
-        console.log("Campaign loading error:", error);
+        console.log(
+            "Campaign loading error:",
+            error
+        );
 
         campaignsContainer.innerHTML = `
             <div class="loading">
@@ -141,32 +147,214 @@ async function loadCampaigns() {
 
 
 // ==============================
-// APPLY BUTTON
+// APPLY CAMPAIGN
 // ==============================
 
-document.addEventListener("click", function(e) {
+document.addEventListener(
+    "click",
+    async function(e) {
 
-    if (
-        e.target.classList.contains("apply-btn")
-    ) {
+        if (
+            !e.target.classList.contains(
+                "apply-btn"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const button = e.target;
 
         const campaignId =
-        e.target.dataset.id;
+            button.dataset.id;
 
         const campaignName =
-        e.target.dataset.name;
+            button.dataset.name;
 
         const platform =
-        e.target.dataset.platform;
+            button.dataset.platform;
 
-        alert(
-            "Apply system next step me connect karenge.\n\n" +
-            "Campaign: " + campaignName
+
+        // --------------------------
+        // CONFIRM APPLICATION
+        // --------------------------
+
+        const confirmed = confirm(
+
+            "Apply for this campaign?\n\n" +
+
+            "Campaign: " +
+            campaignName +
+            "\n" +
+
+            "Platform: " +
+            platform
+
         );
 
-    }
 
-});
+        if (!confirmed) {
+
+            return;
+
+        }
+
+
+        // --------------------------
+        // BUTTON STATE
+        // --------------------------
+
+        button.disabled = true;
+
+        button.innerText =
+            "Applying...";
+
+
+        // --------------------------
+        // FORM DATA
+        // --------------------------
+
+        const formData =
+            new URLSearchParams();
+
+        formData.append(
+            "action",
+            "apply"
+        );
+
+        formData.append(
+            "creatorId",
+            creatorId
+        );
+
+        formData.append(
+            "campaignId",
+            campaignId
+        );
+
+        formData.append(
+            "campaignName",
+            campaignName
+        );
+
+        formData.append(
+            "platform",
+            platform
+        );
+
+
+        // --------------------------
+        // SEND APPLICATION
+        // --------------------------
+
+        try {
+
+            const response =
+                await fetch(API_URL, {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body: formData
+
+                });
+
+
+            const result =
+                (
+                    await response.text()
+                ).trim();
+
+
+            console.log(
+                "Application response:",
+                result
+            );
+
+
+            // --------------------------
+            // SUCCESS
+            // --------------------------
+
+            if (
+                result === "Success"
+            ) {
+
+                alert(
+                    "Application submitted successfully! ✅"
+                );
+
+                button.innerText =
+                    "Applied ✓";
+
+                button.style.background =
+                    "#16a34a";
+
+                return;
+
+            }
+
+
+            // --------------------------
+            // DUPLICATE
+            // --------------------------
+
+            if (
+                result ===
+                "Already Applied"
+            ) {
+
+                alert(
+                    "You have already applied for this campaign."
+                );
+
+                button.innerText =
+                    "Already Applied";
+
+                return;
+
+            }
+
+
+            // --------------------------
+            // OTHER ERROR
+            // --------------------------
+
+            alert(result);
+
+            button.disabled = false;
+
+            button.innerText =
+                "Apply Now";
+
+        }
+
+        catch(error) {
+
+            console.log(
+                "Application error:",
+                error
+            );
+
+            alert(
+                "Connection Error. Please try again."
+            );
+
+            button.disabled = false;
+
+            button.innerText =
+                "Apply Now";
+
+        }
+
+    }
+);
 
 
 // ==============================
