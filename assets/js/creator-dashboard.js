@@ -127,6 +127,52 @@ async function loadApplicationCount() {
 
 }
 
+// ==============================
+// LOAD ACTIVE CAMPAIGNS COUNT
+// ==============================
+
+async function loadActiveCampaignCount() {
+
+    try {
+
+        const response = await fetch(
+            API_URL + "?action=campaigns"
+        );
+
+        const campaigns =
+            await response.json();
+
+        const activeCampaigns =
+            campaigns.filter(function(campaign) {
+
+                return String(
+                    campaign.status || ""
+                ).trim().toLowerCase() === "active";
+
+            });
+
+        document.getElementById(
+            "activeCampaigns"
+        ).innerText =
+            activeCampaigns.length;
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Active campaign count error:",
+            error
+        );
+
+        document.getElementById(
+            "activeCampaigns"
+        ).innerText =
+            "0";
+
+    }
+
+}
 
 // ==============================
 // START DASHBOARD
@@ -134,3 +180,4 @@ async function loadApplicationCount() {
 
 loadPageCount();
 loadApplicationCount();
+loadActiveCampaignCount();
