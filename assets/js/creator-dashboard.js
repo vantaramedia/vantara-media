@@ -88,14 +88,44 @@ async function loadPageCount() {
 
 
 // ==============================
-// TEMPORARY STATS
+// LOAD APPLICATION COUNT
 // ==============================
 
-document.getElementById("totalApplications").innerText =
-"0";
+async function loadApplicationCount() {
 
-document.getElementById("activeCampaigns").innerText =
-"0";
+    try {
+
+        const response = await fetch(
+            API_URL +
+            "?action=myApplications&creatorId=" +
+            encodeURIComponent(creatorId)
+        );
+
+        const applications =
+            await response.json();
+
+        document.getElementById(
+            "totalApplications"
+        ).innerText =
+            applications.length;
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Application count error:",
+            error
+        );
+
+        document.getElementById(
+            "totalApplications"
+        ).innerText =
+            "0";
+
+    }
+
+}
 
 
 // ==============================
@@ -103,3 +133,4 @@ document.getElementById("activeCampaigns").innerText =
 // ==============================
 
 loadPageCount();
+loadApplicationCount();
