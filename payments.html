@@ -1,16 +1,202 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
 
-<title>Coming Soon</title>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Payments | Vantara Media</title>
+
+<link rel="stylesheet"
+href="assets/css/payments.css">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
-<h1>Coming Soon</h1>
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>
+Vantara <span>Media</span>
+</h2>
+
+</div>
+
+
+<nav>
+
+<a href="creator-dashboard.html">
+🏠 Dashboard
+</a>
+
+<a href="available-campaigns.html">
+📢 Campaigns
+</a>
+
+<a href="my-applications.html">
+📝 My Applications
+</a>
+
+<a href="my-pages.html">
+📱 My Pages
+</a>
+
+<a href="payments.html"
+class="active">
+💰 Payments
+</a>
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+<a href="login.html">
+🚪 Logout
+</a>
+
+</nav>
+
+</aside>
+
+
+<!-- Main Content -->
+
+<main class="main-content">
+
+<header class="topbar">
+
+<div>
+
+<h1>Payment History</h1>
+
+<p>
+View your campaign earnings and payment status.
+</p>
+
+</div>
+
+</header>
+
+
+<!-- Payment Summary -->
+
+<section class="stats">
+
+<div class="card">
+
+<h3>Total Earnings</h3>
+
+<h2 id="totalEarnings">
+₹0
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>Paid</h3>
+
+<h2 id="paidAmount">
+₹0
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>Pending</h3>
+
+<h2 id="pendingAmount">
+₹0
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>Total Payments</h3>
+
+<h2 id="totalPayments">
+0
+</h2>
+
+</div>
+
+</section>
+
+
+<!-- Payment History -->
+
+<section class="payments-section">
+
+<h2>Payment History</h2>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+
+<th>Campaign</th>
+
+<th>Views</th>
+
+<th>Amount</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="paymentsTable">
+
+<tr>
+
+<td colspan="5">
+
+No payment history yet.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<script src="assets/js/payments.js"></script>
 
 </body>
 
