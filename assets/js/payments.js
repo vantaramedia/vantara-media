@@ -54,18 +54,20 @@ async function loadPayments() {
     try {
 
         const response =
-            await fetch(
-                API_URL +
-                "?action=payments&creatorId=" +
-                encodeURIComponent(
-                    creatorId
-                )
-            );
+    await fetch(
+        API_URL +
+        "?action=payments&creatorId=" +
+        encodeURIComponent(
+            creatorId
+        )
+    );
 
-        const payments =
-            await response.json();
+alert("FETCH DONE");
 
-        alert(JSON.stringify(payments));
+const payments =
+    await response.json();
+
+alert(JSON.stringify(payments));
 
 
         // ==========================
