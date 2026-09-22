@@ -251,3 +251,5 @@ async function loadPayments() {
 // ==============================
 
 loadPayments();
+
+alert("PAYMENTS JS CONNECTED");
