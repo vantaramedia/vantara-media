@@ -64,10 +64,10 @@ async function loadPayments() {
 
 alert("FETCH DONE");
 
-const payments =
-    await response.json();
+const responseText =
+    await response.text();
 
-alert(JSON.stringify(payments));
+alert(responseText);
 
 
         // ==========================
