@@ -65,6 +65,8 @@ async function loadPayments() {
         const payments =
             await response.json();
 
+        alert(JSON.stringify(payments));
+
 
         // ==========================
         // EMPTY STATE
