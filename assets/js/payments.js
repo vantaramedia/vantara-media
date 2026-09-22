@@ -62,12 +62,8 @@ async function loadPayments() {
         )
     );
 
-alert("FETCH DONE");
-
-const responseText =
-    await response.text();
-
-alert(responseText);
+const payments =
+    await response.json();
 
 
         // ==========================
@@ -256,4 +252,3 @@ alert(responseText);
 
 loadPayments();
 
-alert("PAYMENTS JS CONNECTED");
