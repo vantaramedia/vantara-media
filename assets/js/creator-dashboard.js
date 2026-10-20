@@ -175,9 +175,49 @@ async function loadActiveCampaignCount() {
 }
 
 // ==============================
+// LOAD TOTAL EARNINGS
+// ==============================
+
+async function loadTotalEarnings() {
+
+    try {
+
+        const response = await fetch(
+            API_URL +
+            "?action=payments&creatorId=" +
+            encodeURIComponent(creatorId)
+        );
+
+        const payments = await response.json();
+
+        const total = payments.reduce(
+            function(sum, payment) {
+                return sum + (Number(payment.amount) || 0);
+            },
+            0
+        );
+
+        const earningsElement =
+            document.getElementById("dashboardEarnings");
+
+        if (earningsElement) {
+            earningsElement.innerText =
+                "₹" + total.toLocaleString("en-IN");
+        }
+
+    } catch (error) {
+
+        console.log("Total earnings error:", error);
+
+    }
+
+}
+
+// ==============================
 // START DASHBOARD
 // ==============================
 
 loadPageCount();
 loadApplicationCount();
 loadActiveCampaignCount();
+loadTotalEarnings();
