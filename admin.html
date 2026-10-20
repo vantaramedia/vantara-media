@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Vantara Media</title>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">VANTARA <span>MEDIA</span></a>
+    <span class="admin-label">ADMIN PANEL</span>
+  </header>
+
+  <main class="container">
+    <section id="loginSection" class="panel login-panel">
+      <p class="eyebrow">SECURE ACCESS</p>
+      <h1>Admin Login</h1>
+      <p class="muted">Sign in to manage creator payments.</p>
+
+      <form id="loginForm">
+        <label for="adminEmail">Admin Email</label>
+        <input id="adminEmail" type="email" required autocomplete="username">
+
+        <label for="adminPassword">Password</label>
+        <input id="adminPassword" type="password" required
+               autocomplete="current-password">
+
+        <button class="primary-btn" type="submit">Login</button>
+      </form>
+      <p id="loginMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="dashboardSection" hidden>
+      <div class="welcome-row">
+        <div>
+          <p class="eyebrow">CONTROL CENTRE</p>
+          <h1>Payment Management</h1>
+          <p id="welcomeText" class="muted"></p>
+        </div>
+        <button id="logoutBtn" class="secondary-btn" type="button">
+          Logout
+        </button>
+      </div>
+
+      <section class="panel">
+        <h2>Add Creator Payment</h2>
+        <p class="muted">Enter the payment details and save the entry.</p>
+
+        <form id="paymentForm" class="form-grid">
+          <div>
+            <label for="creatorId">Creator ID</label>
+            <input id="creatorId" placeholder="e.g. VMC0002" required>
+          </div>
+
+          <div>
+            <label for="campaignName">Campaign Name</label>
+            <input id="campaignName" required>
+          </div>
+
+          <div>
+            <label for="views">Views</label>
+            <input id="views" type="number" min="0" step="1" required>
+          </div>
+
+          <div>
+            <label for="amount">Amount (₹)</label>
+            <input id="amount" type="number" min="0" step="0.01" required>
+          </div>
+
+          <div>
+            <label for="paymentStatus">Payment Status</label>
+            <select id="paymentStatus">
+              <option value="Pending">Pending</option>
+              <option value="Paid">Paid</option>
+            </select>
+          </div>
+
+          <div class="form-action">
+            <button class="primary-btn" type="submit">Add Payment</button>
+          </div>
+        </form>
+        <p id="paymentMessage" class="message" role="status"></p>
+      </section>
+
+      <section class="panel">
+        <div class="table-heading">
+          <div>
+            <h2>All Payments</h2>
+            <p class="muted">Review entries and update payment status.</p>
+          </div>
+          <button id="refreshBtn" class="secondary-btn" type="button">
+            Refresh
+          </button>
+        </div>
+
+        <p id="tableMessage" class="message" role="status"></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Payment ID</th>
+                <th>Creator ID</th>
+                <th>Campaign</th>
+                <th>Views</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody id="paymentsTable">
+              <tr><td colspan="8">No data loaded yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
